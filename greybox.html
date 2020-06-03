@@ -1,0 +1,44 @@
+<!-- Welcome Page -->
+
+<header class='header'>
+  <h1>Human Body Quiz</h1>
+  <h2>How Much Do You Know About Your Bod? :brain:</h2>
+  <button class='btn start-button'>Brain Punch!</button>
+</header>
+
+
+<!-- Question Page -->
+
+<form>
+    <legend>${question}</legend>
+    <label for="a"><input type='radio' name='answer' value='${a}' required>${a}</label>
+    <label for="b"><input type='radio' name='answer' value='${b}' required>${b}</label>
+    <label for="c"><input type='radio' name='answer' value='${c}' required>${c}</label>
+    <button class='btn submit-button'>Cannonball!</button>
+</form>
+
+
+<!-- Correct Page -->
+
+<div class='overlay'>
+  <h3>Yay! You got it.</h3>
+  <button class='btn next-button'>Onward!</button>
+</div>
+
+
+
+<!-- Incorrect Page -->
+
+<div class='overlay'>
+  <h3>Oops, that's wrong.</h3>
+  <button class='btn next-button'>Onward!</button>
+</div>
+
+
+<!-- Results Page -->
+
+<div class='overlay'>
+  <h2>You got ${store.score} out of 6 right!</h2>
+  <p>${mesage}</p>
+  <button class='btn reset-button'>Another Go Around?</button>
+</div>
