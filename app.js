@@ -83,9 +83,10 @@ const counter = {
 // create welcome page function
 function generateWelcomeHTML() {
   return `<header class='header'>
-  <h1>Human Body Quiz</h1>
   <h2>How Much Do You Know About Your Bod?</h2>
+  <div>
   <button class='btn start-button'>Brain Punch!</button>
+  </div>
 </header>`;
 }
 
@@ -105,7 +106,7 @@ function generateQuestionHTML(question, a, b, c, d) {
 
 // current score and current question function
 function generateCounterHTML() {
-  return `<div class='state-inner'>
+  return `<div class='counter-inner'>
   <p>Question: ${counter.index + 1} of 6</p>
   <p>Your Score: ${counter.score} of 6</p>
 </div>`;
@@ -256,11 +257,11 @@ function handleNext() {
 function handleNewQuiz() {
   $('.main').on('click', '.reset-button', () => {
     renderWelcome();
-    counter.state = 'off';
-    counter.index = 0;
-    counter.score = 0;
   });
+  counter.state === 'off';
+  renderWelcome();
 }
+
 
 function handleQuizApp() {
   renderWelcome();

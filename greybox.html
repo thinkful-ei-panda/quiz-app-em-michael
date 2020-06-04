@@ -1,28 +1,31 @@
 <!-- Welcome Page -->
 
 <header class='header'>
-  <h1>Human Body Quiz</h1>
   <h2>How Much Do You Know About Your Bod?</h2>
+  <div>
   <button class='btn start-button'>Brain Punch!</button>
+  </div>
 </header>
 
 
 <!-- Question Page -->
 
 <form>
+    <fieldset>
     <legend>${question}</legend>
     <label for="a"><input type='radio' name='answer' value='${a}' required>${a}</label>
     <label for="b"><input type='radio' name='answer' value='${b}' required>${b}</label>
     <label for="c"><input type='radio' name='answer' value='${c}' required>${c}</label>
     <label for="d"><input type='radio' name='answer' value='${d}' required>${d}</label>
     <button class='btn submit-button'>Cannonball!</button>
+  </fieldset>
 </form>
 
 
 
 <!-- Counter Div -->
 
-<div class='state-inner'>
+<div class='counter-inner'>
   <p>Question: ${counter.index + 1} of 6</p>
   <p>Your Score: ${counter.score} of 6</p>
 </div>
