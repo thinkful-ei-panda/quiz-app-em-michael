@@ -171,7 +171,7 @@ function renderQuestion() {
     d = STORE[counter.index].d,
 
     html =generateQuestionHTML(question, a, b, c, d);
-  console.log(STORE[counter.index]);
+  // console.log(STORE[counter.index]);
   $('.main').html(html);
 }
 
@@ -213,7 +213,7 @@ function renderResults() {
 
 // handle click on start button and fire renderQuestion function... renderState
 function handleStart() {
-  $('.main').click('.start-button', () => {
+  $('.main').on('click', '.start-button', () => {
     renderQuestion();
     counter.state = 'on';
     renderCounter();
@@ -221,18 +221,45 @@ function handleStart() {
 }
 
 
+// handle submit event, if input answer is true, add 1 to score and renderCorrect
+// function. else renderIncorrect... renderState
 function handleSubmit() {
-  // handle submit event, if input answer is true, add 1 to score and renderCorrect
-  // function. else renderIncorrect... renderState
+  $('main').submit('.submit-button', (event) => {
+    event.preventDefault();
+    if ($('input[name="answer"]:checked').val() === STORE[counter.index].answer) {
+      counter.score++;
+      renderCorrect();
+    } else {
+      renderIncorrect();
+    }
+    renderCounter();
+  });
 }
 
+
+// handle whether to display end results or next page, while adding to index
 function handleNext() {
-  // handle whether to display end results or next page, while adding to index
+  $('.main').on('click', '.next-button', () => {
+    if (counter.index >= 5) {
+      renderResults();
+    } else {
+      counter.index++;
+      renderQuestion();
+    }
+    renderCounter();
+  });
 }
 
+
+// on click of Another Go Around button fire generateWelcome function
+// reset counter
 function handleNewQuiz() {
-  // on click of Another Go Around button fire generateWelcome function
-  // reset counter
+  $('.main').on('click', '.reset-button', () => {
+    renderWelcome();
+    counter.state = 'off';
+    counter.index = 0;
+    counter.score = 0;
+  });
 }
 
 function handleQuizApp() {
