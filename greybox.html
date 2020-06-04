@@ -2,7 +2,7 @@
 
 <header class='header'>
   <h1>Human Body Quiz</h1>
-  <h2>How Much Do You Know About Your Bod? :brain:</h2>
+  <h2>How Much Do You Know About Your Bod?</h2>
   <button class='btn start-button'>Brain Punch!</button>
 </header>
 
@@ -14,14 +14,25 @@
     <label for="a"><input type='radio' name='answer' value='${a}' required>${a}</label>
     <label for="b"><input type='radio' name='answer' value='${b}' required>${b}</label>
     <label for="c"><input type='radio' name='answer' value='${c}' required>${c}</label>
+    <label for="d"><input type='radio' name='answer' value='${d}' required>${d}</label>
     <button class='btn submit-button'>Cannonball!</button>
 </form>
+
+
+
+<!-- Counter Div -->
+
+<div class='state-inner'>
+  <p>Question: ${counter.index + 1} of 6</p>
+  <p>Your Score: ${counter.score} of 6</p>
+</div>
+
 
 
 <!-- Correct Page -->
 
 <div class='overlay'>
-  <h3>Yay! You got it.</h3>
+  <h3>Yay! You got it!</h3>
   <button class='btn next-button'>Onward!</button>
 </div>
 
@@ -31,6 +42,7 @@
 
 <div class='overlay'>
   <h3>Oops, that's wrong.</h3>
+  <p>The correct answer is ${STORE.index.answer}.</p>
   <button class='btn next-button'>Onward!</button>
 </div>
 
@@ -38,7 +50,7 @@
 <!-- Results Page -->
 
 <div class='overlay'>
-  <h2>You got ${store.score} out of 6 right!</h2>
-  <p>${mesage}</p>
+  <h2>You got ${counter.score} out of 6 right!</h2>
+  <p>${message}</p>
   <button class='btn reset-button'>Another Go Around?</button>
 </div>
