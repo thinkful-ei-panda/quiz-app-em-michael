@@ -99,14 +99,16 @@ function generateQuestionHTML(question, a, b, c, d) {
     <label for="b"><input type='radio' name='answer' value='${b}' required>${b}</label>
     <label for="c"><input type='radio' name='answer' value='${c}' required>${c}</label>
     <label for="d"><input type='radio' name='answer' value='${d}' required>${d}</label>
+    <div>
     <button class='btn submit-button'>Cannonball!</button>
+    </div>
 </form>`;
 }
 
 
 // current score and current question function
 function generateCounterHTML() {
-  return `<div class='counter-inner'>
+  return `<div>
   <p>Question: ${counter.index + 1} of 6</p>
   <p>Your Score: ${counter.score} of 6</p>
 </div>`;
@@ -115,7 +117,7 @@ function generateCounterHTML() {
 
 // generates correct answer page
 function generateCorrectHTML() {
-  return `<div class='overlay'>
+  return `<div>
   <h3>Yay! You got it!</h3>
   <button class='btn next-button'>Onward!</button>
 </div>`;
@@ -124,7 +126,7 @@ function generateCorrectHTML() {
 
 // generates incorrect answer page
 function generateIncorrectHTML() {
-  return `<div class='overlay'>
+  return `<div>
   <h3>Oops, that's wrong.</h3>
   <p>The correct answer is ${STORE[counter.index].answer}.</p>
   <button class='btn next-button'>Onward!</button>
@@ -144,7 +146,7 @@ function generateResultsHTML() {
     message = 'Are you even a human?';
   }
 
-  return `<div class='overlay'>
+  return `<div>
   <h2>You got ${counter.score} out of 6 right!</h2>
   <p>${message}</p>
   <button class='btn reset-button'>Another Go Around?</button>
@@ -243,6 +245,9 @@ function handleNext() {
   $('.main').on('click', '.next-button', () => {
     if (counter.index >= 5) {
       renderResults();
+      counter.index = 0;
+      counter.score = 0;
+      counter.state = 'off';
     } else {
       counter.index++;
       renderQuestion();
@@ -258,7 +263,7 @@ function handleNewQuiz() {
   $('.main').on('click', '.reset-button', () => {
     renderWelcome();
   });
-  counter.state === 'off';
+  // counter.state === 'off';
   renderWelcome();
 }
 
