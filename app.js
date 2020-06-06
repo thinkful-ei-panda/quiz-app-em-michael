@@ -108,7 +108,7 @@ function generateQuestionHTML(question, a, b, c, d) {
 
 // current score and current question function
 function generateCounterHTML() {
-  return `<div>
+  return `<div class='counter-box'>
   <p>Question: ${counter.index + 1} of 6</p>
   <p>Your Score: ${counter.score} of 6</p>
 </div>`;
