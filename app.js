@@ -95,10 +95,10 @@ function generateWelcomeHTML() {
 function generateQuestionHTML(question, a, b, c, d) {
   return `<form>
     <legend>${question}</legend>
-    <label for="a"><input type='radio' name='answer' value='${a}' required>${a}</label>
-    <label for="b"><input type='radio' name='answer' value='${b}' required>${b}</label>
-    <label for="c"><input type='radio' name='answer' value='${c}' required>${c}</label>
-    <label for="d"><input type='radio' name='answer' value='${d}' required>${d}</label>
+    <label><input type='radio' name='answer' value='${a}' required>${a}</label>
+    <label><input type='radio' name='answer' value='${b}' required>${b}</label>
+    <label><input type='radio' name='answer' value='${c}' required>${c}</label>
+    <label><input type='radio' name='answer' value='${d}' required>${d}</label>
     <div>
     <button class='btn submit-button'>Cannonball!</button>
     </div>
